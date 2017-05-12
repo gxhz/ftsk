@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <package name="Parameters" extends="struts-default,json-default">
+        
+        <!-- 获取参数记录信息 -->
+        <action name="GetParametersAction" class="com.action.ParametersAction" method="getParametersInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 添加参数记录信息 -->
+        <action name="AddParametersAction" class="com.action.ParametersAction" method="addParametersInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 修改参数记录信息 -->
+        <action name="EditParametersAction" class="com.action.ParametersAction" method="editParametersInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 删除参数记录信息 -->
+        <action name="DelParametersAction" class="com.action.ParametersAction" method="delParametersInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+                
+    </package>
+
+</struts>

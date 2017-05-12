@@ -1,0 +1,170 @@
+
+	<link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="themes/icon.css">
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.easyui.min.js"></script>
+	<script language="javascript" type="text/javascript" src="hz_js/My97DatePicker/WdatePicker.js"></script>
+	
+	<link href="themes/default/style.css" rel="stylesheet" type="text/css" media="screen"/>
+	<link href="themes/css/core.css" rel="stylesheet" type="text/css" media="screen"/>
+	<link href="themes/css/print.css" rel="stylesheet" type="text/css" media="print"/>
+	<link href="uploadify/css/uploadify.css" rel="stylesheet" type="text/css" media="screen"/>
+	<link href="css/index_style.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="css/zzsc.css" type="text/css" />
+
+	<style type="text/css">
+		table.jgdstyle_jcd {
+			font-family: verdana,arial,sans-serif;
+			font-size:15px;
+			color:#333333;
+			border-width: 1px;
+			border-collapse: collapse;
+		}
+		table.jgdstyle_jcd td {
+			border-width: 1px;
+			padding-left: 5px;
+			padding-right: 5px;
+			padding-top: 5px;
+			padding-bottom: 5px;
+			border-style: solid;
+			border-color: #c0c0c0;
+			text-align: center;
+		}
+	</style>
+	
+	<table id="dg" class="easyui-datagrid" style="width:100%;height:227px" 
+		data-options="singleSelect:true,fitColumns:true,method:'get'">
+		<thead>
+			<tr>
+				<th data-options="field:'value1',width:100" align="center">观测对象</th>
+				<th data-options="field:'value2',width:60" align="center">渗压水位(m)</th>
+				<th data-options="field:'value3',width:60" align="center">仪器编号</th>
+				<th data-options="field:'value4',width:60" align="center">埋设高程(m)</th>
+				<th data-options="field:'value5',width:60" align="center">管口高程(m)</th>
+				<th data-options="field:'value6',width:60" align="center">频率模数(Hz)</th>
+				<th data-options="field:'value7',width:60" align="center">温度(℃)</th>
+				<th data-options="field:'value8',width:60" align="center">MCU编号</th>
+				<th data-options="field:'value9',width:60" align="center">MCU通道</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr target="sid_user" rel="1">
+				<td>PA1-1</td>
+				<td>196.30</td>
+				<td>101961</td>
+				<td>148.030</td>
+				<td>176.698</td>
+				<td>7083</td>
+				<td>22</td>
+				<td>1</td>
+				<td>1</td>
+			</tr>
+			<tr target="sid_user" rel="1">
+				<td>PA1-2</td>
+				<td>168.45</td>
+				<td>101985</td>
+				<td>156.540</td>
+				<td>176.698</td>
+				<td>7753</td>
+				<td>25</td>
+				<td>1</td>
+				<td>2</td>
+			</tr>
+			<tr target="sid_user" rel="1">
+				<td>PA2-1</td>
+				<td>169.39</td>
+				<td>102031</td>
+				<td>153.920</td>
+				<td>178.310</td>
+				<td>8037</td>
+				<td>23</td>
+				<td>1</td>
+				<td>3</td>
+			</tr>
+			<tr target="sid_user" rel="1">
+				<td>PA2-2</td>
+				<td>169.15</td>
+				<td>102019</td>
+				<td>156.270</td>
+				<td>178.310</td>
+				<td>8204</td>
+				<td>25</td>
+				<td>1</td>
+				<td>4</td>
+			</tr>
+			<tr target="sid_user" rel="1">
+				<td>PA3-1</td>
+				<td>167.38</td>
+				<td>101954</td>
+				<td>150.190</td>
+				<td>177.905</td>
+				<td>7243</td>
+				<td>24</td>
+				<td>1</td>
+				<td>5</td>
+			</tr>
+			<tr target="sid_user" rel="1">
+				<td>PA3-2</td>
+				<td>164.54</td>
+				<td>101990</td>
+				<td>155.600</td>
+				<td>177.905</td>
+				<td>8044</td>
+				<td>24</td>
+				<td>1</td>
+				<td>6</td>
+			</tr>
+			<tr target="sid_user" rel="1">
+				<td>PA4-1</td>
+				<td>158.72</td>
+				<td>101981</td>
+				<td>151.070</td>
+				<td>165.599</td>
+				<td>8301</td>
+				<td>23</td>
+				<td>1</td>
+				<td>7</td>
+			</tr>
+			<tr target="sid_user" rel="1">
+				<td>PA4-2</td>
+				<td>159.37</td>
+				<td>101975</td>
+				<td>153.930</td>
+				<td>165.599</td>
+				<td>8468</td>
+				<td>22</td>
+				<td>1</td>
+				<td>8</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<div style="padding-top:5px;">
+		<img src="image/dbjc.png" style="position:absolute;">
+		<table class="jgdstyle_jcd" style="position:absolute;width:80px;height:300px;right:32px;">
+			<tr>
+				<td><a href="javascript:void(0);" class="easyui-linkbutton" style="width:100px;">PA1-1</a></td>
+			</tr>
+			<tr>
+				<td><a href="javascript:void(0);" class="easyui-linkbutton" style="width:100px;">PA1-2</a></td>
+			</tr>
+			<tr>
+				<td><a href="javascript:void(0);" class="easyui-linkbutton" style="width:100px;">PA2-1</a></td>
+			</tr>
+			<tr>
+				<td><a href="javascript:void(0);" class="easyui-linkbutton" style="width:100px;">PA2-2</a></td>
+			</tr>
+			<tr>
+				<td><a href="javascript:void(0);" class="easyui-linkbutton" style="width:100px;">PA3-1</a></td>
+			</tr>
+			<tr>
+				<td><a href="javascript:void(0);" class="easyui-linkbutton" style="width:100px;">PA3-2</a></td>
+			</tr>
+			<tr>
+				<td><a href="javascript:void(0);" class="easyui-linkbutton" style="width:100px;">PA4-1</a></td>
+			</tr>
+			<tr>
+				<td><a href="javascript:void(0);" class="easyui-linkbutton" style="width:100px;">PA4-2</a></td>
+			</tr>
+		</table>
+	</div>

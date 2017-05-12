@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <package name="reservoirs" extends="struts-default,json-default">
+        
+        <!-- 查询日志信息 -->
+        <action name="GetRzAction" class="com.action.RzAction" method="getRz">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 添加日志信息 -->
+        <action name="AddRzAction" class="com.action.RzAction" method="addRz">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 删除日志信息 -->
+        <action name="DelRzAction" class="com.action.RzAction" method="delRz">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+                
+    </package>
+
+</struts>

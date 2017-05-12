@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <package name="dbjc" extends="struts-default,json-default">
+        
+        <!-- 大坝监测-数据查询 -->
+        <action name="DBFindAction" class="com.action.DBJCAction" method="findDBJC">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 大坝监测-渗压数据 -->
+        <action name="getDBCJSY" class="com.action.DBJCAction" method="findDBCJSY">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- 获取所有传感器实时数据 -->
+        <action name="GetDBRTData" class="com.action.DBJCAction" method="getDBRTData">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+                
+        <!-- 获取所有传感器详细实时数据 -->
+        <action name="GetDBRTDataDetails" class="com.action.DBJCAction" method="getDBRTDataDetails">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- 获取所有传感器详细实时数据 -->
+        <action name="GetSLRTDataDetails" class="com.action.DBJCAction" method="getSLRTDataDetails">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- 获取时段、日、月报表统计 -->
+        <action name="GetSDBBTJData" class="com.action.DBJCAction" method="getSDBBTJData">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- 获取年报表统计 -->
+        <action name="GetNBBTJData" class="com.action.DBJCAction" method="getNBBTJData">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- 获取年过程线 -->
+        <action name="GetNGCXData" class="com.action.DBJCAction" method="getNGCXData">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- 导出时段、日、月报表统计至Excel -->
+        <action name="ExportSDBBTJToExcel" class="com.action.DBJCAction" method="exportSDBBTJToExcel">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- 导出年报表统计至Excel -->
+        <action name="ExportNBBTJToExcel" class="com.action.DBJCAction" method="exportNBBTJToExcel">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- 获取分布图 -->
+        <action name="GetFBTData" class="com.action.DBJCAction" method="getFBTData">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- 渗压水位-库水位关系图  -->
+        <action name="GetSYSWKSWGXTData" class="com.action.DBJCAction" method="getSYSWKSWGXTData">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- 获取渗压水位浸润线数据  -->
+        <action name="GetSYSWJRXData" class="com.action.DBJCAction" method="getSYSWJRXData">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- 获取渗压水位等势线数据  -->
+        <action name="GetSYSWDSXData" class="com.action.DBJCAction" method="getSYSWDSXData">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+    </package>
+
+</struts>

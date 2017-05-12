@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <package name="sections" extends="struts-default,json-default">
+        
+        <!-- 获取断面信息 -->
+        <action name="GetSectionsAction" class="com.action.SectionsAction" method="getSectionsInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 添加断面信息 -->
+        <action name="AddSectionsAction" class="com.action.SectionsAction" method="addSectionsInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 修改断面信息 -->
+        <action name="EditSectionsAction" class="com.action.SectionsAction" method="editSectionsInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 删除断面信息 -->
+        <action name="DelSectionsAction" class="com.action.SectionsAction" method="delSectionsInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+                
+    </package>
+
+</struts>

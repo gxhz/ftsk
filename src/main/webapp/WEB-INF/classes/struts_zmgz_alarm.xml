@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <package name="zmgz" extends="struts-default,json-default">
+        
+        <!-- 获取所有闸门实时数据 -->
+        <action name="GetZMMsg" class="com.action.ZMGZ_AlarmAction" method="getZMMsg">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- 获取闸门报表数据 -->
+        <action name="GetZMReportData" class="com.action.ZMGZ_AlarmAction" method="getZMReportData">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 获取闸门报警数据 -->
+        <action name="GetZMAlarmData" class="com.action.ZMGZ_AlarmAction" method="getZMAlarmData">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 导出闸门报表数据 -->
+        <action name="ExportZMReoprtToExcel" class="com.action.ZMGZ_AlarmAction" method="exportZMReoprtToExcel">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- 导出闸门报警数据 -->
+        <action name="ExportZMAlarmToExcel" class="com.action.ZMGZ_AlarmAction" method="exportZMAlarmToExcel">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- 获取报警数据 -->
+        <action name="GetAlarmMsg" class="com.action.ZMGZ_AlarmAction" method="getAlarmMsg">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 导出报警数据 -->
+        <action name="ExportAlarmToExcel" class="com.action.ZMGZ_AlarmAction" method="exportAlarmToExcel">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- 发布微信信息 -->
+        <action name="SendWXMsg" class="com.action.ZMGZ_AlarmAction" method="sendWXMsg">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 获取微信发布信息 -->
+        <action name="GetWXFBMsg" class="com.action.ZMGZ_AlarmAction" method="getWXFBMsg">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- DWR推送信息 -->
+        <action name="SendDWRMsg" class="com.action.ZMGZ_AlarmAction" method="sendDWRMsg">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 发送邮件 -->
+        <action name="SendMail" class="com.action.ZMGZ_AlarmAction" method="sendMail">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 获取手机APP信息 -->
+        <action name="GetAPPMsg" class="com.action.ZMGZ_AlarmAction" method="getAPPMsg">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- 推送手机APP消息 -->
+        <action name="SendAPPMsg" class="com.action.ZMGZ_AlarmAction" method="sendAPPMsg">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 发送短信 -->
+        <action name="SendSMS" class="com.action.ZMGZ_AlarmAction" method="sendSMS">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+    </package>
+
+</struts>

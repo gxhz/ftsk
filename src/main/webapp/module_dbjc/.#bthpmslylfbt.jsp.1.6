@@ -1,0 +1,122 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+<%@include file="../head1.jsp" %> 
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>实时信息</title>
+
+</head>
+
+<body>
+
+	<div style="position: fixed;left:0px;right:0px;z-index: 888;padding: 5px;margin-left:auto;margin-right:auto;width:800px">
+    	<a href="bthpmslylfbt.jsp">0+020横剖面图</a>
+		<a href="bthpmslylfbt_1.jsp">0+080横剖面图</a>
+		<a href="bthpmslylfbt_2.jsp">0+140横剖面图</a>  
+		<a href="bthpmslylfbt_3.jsp">0+200横剖面图</a>  
+		<a href="bthpmslylfbt_4.jsp">0+260横剖面图</a>  
+		<a href="bthpmslylfbt_5.jsp">溢洪道纵剖面图</a>  
+    </div>
+    
+	<div id="content" style="width:1600;height:800">
+	<canvas id="canvas" width="1600px" height="800px" style="background: url(../images/hpm/20.jpg) no-repeat;" style="z-index:999" >
+	</div> 
+	
+	<div style="position: fixed;left:0px;right:0px;bottom:80px;z-index: 888;padding: 5px;margin-left:auto;margin-right:auto;width:800px">
+    	<table align="center"  border="0" cellpadding="0" cellspacing="0" style="padding:5px;">
+			<tr>
+				<td>日期选择：</td>
+				<td>
+                    <input id="sdate" name="sdate" data-options="editable:false,onSelect:onSelect" 
+                        class="easyui-datebox" required style="width:120px;height:28px">
+                </td>
+                <td width="80px"></td>
+                <td width="120px">
+                    <span style="font:normal 18px '微软雅黑'; color:#EA0000; position: relative; top:2px;">红线：坝体</span>
+                </td>
+                <td width="120px">
+                    <span style="font:normal 18px '微软雅黑'; color:#EAC100; position: relative; top:2px;">黄线：坝基</span>
+                </td>
+		    </tr>
+		</table>
+    </div>
+
+</body>
+
+
+<script>
+	//初始化界面数据
+	window.onload = function () { 
+		$('#sdate').datebox('setValue', formatterDate(new Date()));
+		
+		getData();
+	};
+	
+	function onSelect(date){
+		getData();
+	}
+
+	//得到当前日期
+    formatterDate = function(date) {
+        var day = date.getDate() > 9 ? date.getDate() : "0" + date.getDate();
+        var month = (date.getMonth() + 1) > 9 ? (date.getMonth() + 1) : "0"
+        + (date.getMonth() + 1);
+        return date.getFullYear() + '-' + month + '-' + day;
+    };
+
+	var xValues = [709, 959, 1140, 1343];
+	var yTop =  185.44; //232.56f的位置
+	var yTop2 =  248.7; //222.3的位置
+	var yUnit = (yTop2 - yTop)/(232.56-222.30); //以232.56为参照，找222.3f或其它任意一点算出来的单位高度
+	
+	var yRules = [240, 230, 220, 210, 200, 190, 180, 170, 160, 150, 140]; //值越大，越往上
+	var designData = [222.3, 232.6, 222.57, 212.57];
+	var realData = [222.3, 229, 252, 180];
+	var realData2 = [222.3, 219, 252, 189];
+	
+	function getData() {
+		var sdate;
+		var sname='PA1-1,PA2-1,PA3-1,PA4-1,PA1-2,PA2-2,PA3-2,PA4-2';
+		
+		sdate = $('#sdate').datebox('getValue');
+		
+		if(sdate == '') {
+        	$.messager.alert('系统提示','请选择日期!','error');
+        	return;
+        }
+		
+		 $.ajax({
+            type:'post',
+            dataType:'json',
+            data:{SDate:sdate,names:sname},
+            url:'GetSYSWJRXData.action',
+            success:function(data) { 
+            	realData[0] = data[0];
+            	realData[1] = data[1];
+            	realData[2] = data[2];
+            	realData[3] = data[3];
+            	
+            	realData2[0] = data[4];
+            	realData2[1] = data[5];
+            	realData2[2] = data[6];
+            	realData2[3] = data[7];
+            	
+				//draw the line
+				var canvas = document.getElementById("canvas");
+				
+				drawDesign(canvas, designData, xValues, yTop, yUnit, 232.56);
+				drawReal(canvas, realData, xValues, yTop, yUnit, 232.56, "#EA0000");
+				drawReal(canvas, realData2, xValues, yTop, yUnit, 232.56, "#EAC100");
+				
+				drawRule(canvas, yRules, 550, yTop, yUnit, 232.56);
+				drawRule(canvas, yRules, canvas.offsetWidth -150, yTop, yUnit, 232.56);
+             }
+         }); 
+	}
+</script>
+
+</html>

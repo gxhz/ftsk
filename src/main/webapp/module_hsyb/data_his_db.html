@@ -1,0 +1,169 @@
+<link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="themes/icon.css">
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="jquery.easyui.min.js"></script>
+<script language="javascript" type="text/javascript" src="../hz_js/My97DatePicker/WdatePicker.js"></script>
+		
+<link href="themes/default/style.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="themes/css/core.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="themes/css/print.css" rel="stylesheet" type="text/css" media="print"/>
+<link href="uploadify/css/uploadify.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="css/index_style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="css/zzsc.css" type="text/css" />
+
+<style type="text/css">
+  
+	table.jgdstyle {
+		font-family: verdana,arial,sans-serif;
+		font-size:15px;
+		color:#333333;
+		border-width: 1px;
+		border-collapse: collapse;
+	}
+	table.jgdstyle td {
+		border-width: 0px;
+		padding-left: 1px;
+		padding-right: 1px;
+		border-style: solid;
+	}
+	
+</style>
+
+	 <div style="border:1px solid #b8d0d6;padding:3px;width:width:100%">
+		<table class="jgdstyle">
+			<tr>
+				<td width="100">站点选择：</td>
+				<td width="150">									
+				<select class="combox" name="province" style="width:120px">
+					<option value="">所有站点</option>
+					<option value="南宁">凤亭河水库</option>
+					<option value="南宁">屯六水库</option>						
+				</select>
+				</td>
+				<td width="100">监测点选择：</td>
+				<td width="150" >
+					<select class="combox" name="province" style="width:120px" >
+						<option value="">所有监测点</option>
+						<option value="压力">水位</option>
+						<option value="水位">库容量</option>
+					</select>									
+				</td>
+				<td width="100">开始时间：</td>							
+				<td width="150">		
+					<input type="text" name="date_0" id="date_0" onclick="WdatePicker()" style="width:120px;height:25px">
+				</td>
+				<td width="100">结束时间：</td>							
+				<td width="150">
+					<input type="text" name="date_1" id="date_1" onclick="WdatePicker()" style="width:120px;height:25px">
+				</td>
+				<td width="80" align="left"> <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" style="width:60px;height:25px">查询</a></td>
+			</tr>
+		</table>
+	</div>
+							
+	<div style="border:1px solid #b8d0d6;padding:3px;">
+		<a href="javascript:void(0)" onclick="$('#w').window('open')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-add'">添加</a>
+		<a href="javascript:void(0)" onclick="$('#w').window('open')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-edit'">修改</a>
+		<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-remove'">删除</a>
+		<a href="demo/common/dwz-team.xls" class="easyui-linkbutton" data-options="plain:true" target="dwzExport" title="实要导出这些记录吗?">导出Excel</a>
+	</div>
+	
+	<table id="dg" class="easyui-datagrid" style="width:100%;height:462px" 
+		data-options="singleSelect:true,fitColumns:true,method:'get'" pagination="true">
+		<thead>
+			<tr>
+				<th data-options="field:'itemid',width:60" align="center">序号</th>
+				<th data-options="field:'time',width:120" align="center">时间</th>
+				<th data-options="field:'name',width:180" align="center">名称</th>
+				<th data-options="field:'value',width:80" align="center">测量值</th>
+			</tr>
+		</thead>
+		<tbody>
+				<tr target="sid_user" rel="1">
+					<td>1</td>
+					<td>2014-09-04 00:30</td>
+					<td>凤亭河水库大坝渗压</td>
+					<td>17.8Kpa</td>
+				</tr>
+				<tr target="sid_user" rel="2">
+					<td>2</td>
+					<td>2014-09-04 00:30</td>
+					<td>凤亭河水库水位</td>
+					<td>173.1m</td>
+				</tr>		
+				<tr target="sid_user" rel="3">
+					<td>3</td>
+					<td>2014-09-04 01:00</td>
+					<td>凤亭河水库大坝渗压</td>
+					<td>17.8Kpa</td>
+				</tr>
+				<tr target="sid_user" rel="4">
+					<td>4</td>
+					<td>2014-09-04 01:00</td>
+					<td>凤亭河水库水位</td>
+					<td>173.6m</td>
+				</tr>
+				<tr target="sid_user" rel="5">
+					<td>5</td>
+					<td>2014-09-04 01:30</td>
+					<td>凤亭河水库大坝渗压</td>
+					<td>17.8Kpa</td>
+				</tr>
+				<tr target="sid_user" rel="6">
+					<td>6</td>
+					<td>2014-09-04 01:30</td>
+					<td>凤亭河水库水位</td>
+					<td>174.0m</td>
+				</tr>
+				<tr target="sid_user" rel="7">
+					<td>7</td>
+					<td>2014-09-04 02:00</td>
+					<td>凤亭河水库大坝渗压</td>
+					<td>17.8Kpa</td>
+				</tr>
+				<tr target="sid_user" rel="8">
+					<td>8</td>
+					<td>2014-09-04 02:00</td>
+					<td>凤亭河水库水位</td>
+					<td>174.9m</td>
+				</tr>
+				<tr target="sid_user" rel="9">
+					<td>9</td>
+					<td>2014-09-04 02:30</td>
+					<td>凤亭河水库大坝渗压</td>
+					<td>17.8Kpa</td>
+				</tr>
+				<tr target="sid_user" rel="10">
+					<td>10</td>
+					<td>2014-09-04 02:30</td>
+					<td>凤亭河水库水位</td>
+					<td>172.9m</td>
+				</tr>
+				<tr target="sid_user" rel="11">
+					<td>11</td>
+					<td>2014-09-04 03:00</td>
+					<td>凤亭河水库大坝渗压</td>
+					<td>17.8Kpa</td>
+				</tr>
+				<tr target="sid_user" rel="12">
+					<td>12</td>
+					<td>2014-09-04 03:00</td>
+					<td>凤亭河水库水位</td>
+					<td>173.5m</td>
+				</tr>
+		</tbody>
+	</table>
+	
+	<div id="w" class="easyui-window" title="数据设置" data-options="closed:true,iconCls:'icon-save'" 
+		style="left:350px;top:20px;width:530px;height:460px">
+       <iframe frameborder="0" scrolling="no" width="100%" height="380px" src='data_his_db_add.html'></iframe>
+	    <div style="text-align:center;width:100%">
+			<table style="width:100%;height:40px">
+				<tr>
+					<td  width=70%>&nbsp;<td>
+					<td width=80><a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()"  style="width:60px">保存</a><td>
+					<td width=80><a href="javascript:void(0)" onclick="$('#w').window('close');" class="easyui-linkbutton" style="width:60px">取消</a><td>
+				</tr>
+			</table>		
+		</div>
+    </div>

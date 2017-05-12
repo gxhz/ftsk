@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <package name="syq" extends="struts-default,json-default">
+        
+        <!-- 获取库水位实时信息 -->
+        <action name="GetSWAction" class="com.action.SYQJCAction" method="getSWAction">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 获取降雨量实时信息 -->
+        <action name="GetYLAction" class="com.action.SYQJCAction" method="getYLAction">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 获取当前库水位、库容量相关信息 -->
+        <action name="GetKSWAction" class="com.action.SYQJCAction" method="getKSWAction">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 获取当天24小时降雨量信息 -->
+        <action name="GetJYLAction" class="com.action.SYQJCAction" method="getJYLAction">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 获取库水位时段、日、月报表统计 -->
+        <action name="GetKSWSDBBTJData" class="com.action.SYQJCAction" method="getKSWSDBBTJData">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- 导出库水位时段、日、月报表统计至Excel -->
+        <action name="ExportKSWSDBBTJToExcel" class="com.action.SYQJCAction" method="exportKSWSDBBTJToExcel">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- 获取库水位年报表统计 -->
+        <action name="GetKSWNBBTJData" class="com.action.SYQJCAction" method="getKSWNBBTJData">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- 导出库水位年报表统计至Excel -->
+        <action name="ExportKSWNBBTJToExcel" class="com.action.SYQJCAction" method="exportKSWNBBTJToExcel">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- 获取降雨量时段、日、月报表统计 -->
+        <action name="GetJYLSDBBTJData" class="com.action.SYQJCAction" method="getJYLSDBBTJData">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- 导出降雨量时段、日、月报表统计至Excel -->
+        <action name="ExportJYLSDBBTJToExcel" class="com.action.SYQJCAction" method="exportJYLSDBBTJToExcel">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- 获取降雨量年报表统计 -->
+        <action name="GetJYLNBBTJData" class="com.action.SYQJCAction" method="getJYLNBBTJData">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- 导出降雨量年报表统计至Excel -->
+        <action name="ExportJYLNBBTJToExcel" class="com.action.SYQJCAction" method="exportJYLNBBTJToExcel">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- 获取库水位年过程线 -->
+        <action name="GetKSWNGCXData" class="com.action.SYQJCAction" method="getKSWNGCXData">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- 获取降雨量时段、月过程线 -->
+        <action name="GetJYLSDGCXData" class="com.action.SYQJCAction" method="getJYLSDGCXData">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- 获取雨量站今日降雨量实时数据 -->
+        <action name="GetJYLRTData" class="com.action.SYQJCAction" method="getJYLRTData">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+    </package>
+
+</struts>

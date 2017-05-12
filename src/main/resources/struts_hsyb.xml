@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <package name="hsyb" extends="struts-default,json-default">
+        
+        <!-- 获取调度结果表  -->
+        <action name="GetHSYBJGBData" class="com.action.HSYBAction" method="getHSYBJGBData">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- 获取调度结果统计表0  -->
+        <action name="GetHSYBJGTJBData0" class="com.action.HSYBAction" method="getHSYBJGTJBData0">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        <!-- 获取调度结果统计表1  -->
+        <action name="GetHSYBJGTJBData1" class="com.action.HSYBAction" method="getHSYBJGTJBData1">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        <!-- 获取调度结果统计表2  -->
+        <action name="GetHSYBJGTJBData2" class="com.action.HSYBAction" method="getHSYBJGTJBData2">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        <!-- 获取调度结果统计表3  -->
+        <action name="GetHSYBJGTJBData3" class="com.action.HSYBAction" method="getHSYBJGTJBData3">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- 获取调度过程图  -->
+        <action name="GetHSYBGCTData" class="com.action.HSYBAction" method="getHSYBGCTData">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+    </package>
+
+</struts>

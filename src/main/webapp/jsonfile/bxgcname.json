@@ -1,0 +1,11 @@
+[{    
+    "value": "hoffset",    
+    "text": "横向水平位移"
+},{
+    "value": "voffset",    
+    "text": "纵向水平位移"
+},{
+    "value": "zoffset",    
+    "text": "竖向位移"
+}]
+

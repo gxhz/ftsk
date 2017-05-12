@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="themes/icon.css">
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.easyui.min.js"></script>
+    <script language="javascript" type="text/javascript" src="hz_js/My97DatePicker/WdatePicker.js"></script>
+	
+	<script type="text/javascript" src="jquery.jqplot.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="jquery.jqplot.min.css">
+	
+	<script type="text/javascript" src="plugins/jqplot.highlighter.min.js"></script>
+	<script type="text/javascript" src="plugins/jqplot.cursor.min.js"></script>
+	<script type="text/javascript" src="plugins/jqplot.dateAxisRenderer.min.js"></script>
+	
+	<script class="code" type="text/javascript">
+		$(document).ready(function(){
+		  var line1=[171, 172, 173, 174, 175, 173, 172.5, 172, 175, 174, 173.5, 171,173, 174, 172, 173, 175, 172.5, 171, 174, 175, 173.5, 173];
+		  
+		  var plot = $.jqplot ('chart1', [line1],
+			{
+				legend: { 
+					show:true, 
+					placement: 'outsideGrid'
+				}, 
+				series:[
+					{label:'水库水位'}
+				],
+				axes: {
+				  xaxis: {
+					padMin: 0,
+					padMax: 1.05,
+					tickOptions: {
+						 formatString: '%.0f:00'
+					 }
+				  },
+				  yaxis: {
+					padMin: 0,
+					padMax: 0,
+					rendererOptions: { forceTickAt0: true, forceTickAt100: true },
+					tickOptions: {
+						 formatString: '%.0f&nbsp;'
+					 }
+				  }
+				},
+				highlighter: {
+					show: true,
+					sizeAdjust: 7.5
+				  },
+				cursor: {
+					show: false
+				  }
+			}
+			);
+			
+		});
+	</script>
+
+	<style type="text/css">
+	  
+		table.jgdstyle {
+			font-family: verdana,arial,sans-serif;
+			font-size:15px;
+			color:#333333;
+			border-width: 1px;
+			border-collapse: collapse;
+		}
+		table.jgdstyle td {
+			border-width: 0px;
+			padding-left: 5px;
+			padding-right:5px;
+			border-style: solid;
+		}
+		
+	</style>
+</head>
+<body>
+
+	<div id="chart1" style="left:15px;width:1100px;height: 410px"></div>
+
+	<div style="border:1px solid #b8d0d6;padding:3px;width:99.3%">
+		<table class="jgdstyle">
+			<tr>
+				<td width="80" align="right">开始时间：</td>							
+				<td width="120" align="left"><input type="text" name="date_0" id="date_0" onclick="WdatePicker()" style="width:120px"></td>
+				<td width="80" align="right">结束时间：</td>							
+				<td width="120" align="left"><input type="text" name="date_1" id="date_1" onclick="WdatePicker()" style="width:120px"></td>
+				<td width="80"> <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" style="width:60px">查询</a></td>
+				<td width="400"></td>
+			</tr>
+		</table>
+	</div>
+
+	<div style="float:left;width:910px;height:84px" >
+		<table id="dg" class="easyui-datagrid" style="width:100%;height:100%" 
+			data-options="singleSelect:true,fitColumns:true,method:'get'">
+			<thead>
+				<tr>
+					<th data-options="field:'itemid',width:80" align="center">日期</th>
+					<th data-options="field:'time',width:60" align="center">时间</th>
+					<th data-options="field:'name',width:80" align="center">报警点</th>
+					<th data-options="field:'value',width:150" align="center">报警信息</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr target="sid_user" rel="1">
+					<td>2014-09-01</td>
+					<td>11:32:12</td>
+					<td>PC52</td>
+					<td>PC52测压点异常</td>
+				</tr>
+				<tr target="sid_user" rel="2">
+					<td>2014-09-01</td>
+					<td>12:13:24</td>
+					<td>PB61</td>
+					<td>PB61测压点异常</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div style="float:left;border:1px solid #b8d0d6;padding:3px;width:208px;">
+		<table class="jgdstyle">
+			<tr>
+				<td width="200" align="left">水库水位：</td>						
+				<td width="200" align="left">170.15m</td>
+			</tr>
+			<tr>
+				<td width="200" align="left">水库库容：</td>						
+				<td width="200" align="left">30614.0万m³</td>
+			</tr>
+			<tr>
+				<td width="200" align="left">蒸发量：</td>						
+				<td width="200" align="left">5.0mm</td>
+			</tr>
+			<tr>
+				<td width="200" align="left">当日雨量：</td>						
+				<td width="200" align="left">0.0mm</td>
+			</tr>
+		</table>
+	</div>
+
+</body>
+</html>

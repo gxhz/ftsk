@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <package name="bxgc" extends="struts-default,json-default">
+        
+        <!-- 获取变形观测实时数据 -->
+        <action name="GetBXRTData" class="com.action.BXGCAction" method="getBXRTData">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- 获取时段、日、月报表统计 -->
+        <action name="GetBXSDBBTJData" class="com.action.BXGCAction" method="getBXSDBBTJData">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- 导出时段、日、月报表统计至Excel -->
+        <action name="ExportBXSDBBTJToExcel" class="com.action.BXGCAction" method="exportBXSDBBTJToExcel">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- 获取年报表统计 -->
+        <action name="GetBXNBBTJData" class="com.action.BXGCAction" method="getBXNBBTJData">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- 导出年报表统计至Excel -->
+        <action name="ExportBXNBBTJToExcel" class="com.action.BXGCAction" method="exportBXNBBTJToExcel">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- 获取年过程线 -->
+        <action name="GetBXNGCXData" class="com.action.BXGCAction" method="getBXNGCXData">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- 获取分布图 -->
+        <action name="GetBXFBTData" class="com.action.BXGCAction" method="getBXFBTData">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- 获取竖向位移等值线数据 -->
+        <action name="GetSXWYDCXData" class="com.action.BXGCAction" method="getSXWYDCXData">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- 获取竖向位移等值线数据 -->
+        <action name="GetSXWYDCXData1" class="com.action.BXGCAction" method="getSXWYDCXData1">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+    </package>
+
+</struts>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <package name="phone" extends="struts-default,json-default">
+        
+        <!-- 登录 -->
+        <action name="MakePhoneLogin" class="com.action.PhoneAction" method="makePhoneLogin">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 注册申请 -->
+        <action name="SumitRegMsg" class="com.action.PhoneAction" method="sumitRegMsg">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 获取实时库水位 -->
+        <action name="GetRTKSW" class="com.action.PhoneAction" method="getRTKSW">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 获取当天24小时库水位 -->
+        <action name="GetCurDayKSW" class="com.action.PhoneAction" method="getCurDayKSW">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 获取当天24小时降雨量 -->
+        <action name="GetCurDayJYL" class="com.action.PhoneAction" method="getCurDayJYL">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 获取实时渗压水位 -->
+        <action name="GetRTSYSW" class="com.action.PhoneAction" method="getRTSYSW">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 获取实时降雨量 -->
+        <action name="GetRTJYL" class="com.action.PhoneAction" method="getRTJYL">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 获取历史渗压水位 -->
+        <action name="GetHisSYSW" class="com.action.PhoneAction" method="getHisSYSW">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 获取历史降雨量 -->
+        <action name="GetHisJYL" class="com.action.PhoneAction" method="getHisJYL">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 获取月库水位 -->
+        <action name="GetMonthKSW" class="com.action.PhoneAction" method="getMonthKSW">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 获取月降雨量 -->
+        <action name="GetMonthJYL" class="com.action.PhoneAction" method="getMonthJYL">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 手机APP升级检测 -->
+        <action name="CheckAPPUpdate" class="com.action.PhoneAction" method="checkAPPUpdate">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 获取实时变形观测数据 -->
+        <action name="GetBXGCRTData" class="com.action.PhoneAction" method="getBXGCRTData">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 获取闸门监控实时数据 -->
+        <action name="GetZMJKRTData" class="com.action.PhoneAction" method="getZMJKRTData">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 获取历史变形观测数据 -->
+        <action name="GetHisBXGCData" class="com.action.PhoneAction" method="getHisBXGCData">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 获取历史闸门监控数据 -->
+        <action name="GetZMJLHisData" class="com.action.PhoneAction" method="getZMJLHisData">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 获取所有观测点名称 -->
+        <action name="GetBXGCName" class="com.action.PhoneAction" method="getBXGCName">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 获取变形观测点一个月的位移数据 -->
+        <action name="GetMonthBXGC" class="com.action.PhoneAction" method="getMonthBXGC">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 获取闸门监控一个月数据 -->
+        <action name="GetMonthZMJK" class="com.action.PhoneAction" method="getMonthZMJK">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 获取所有传感器名称 -->
+        <action name="GetAllZGQName" class="com.action.PhoneAction" method="getAllZGQName">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 获取传感器一个月数据 -->
+        <action name="GetZGQQXData" class="com.action.PhoneAction" method="getZGQQXData">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 获取当天24小时传感器数据 -->
+        <action name="GetZGQHisQXData" class="com.action.PhoneAction" method="getZGQHisQXData">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 获取所有雨量站名称 -->
+        <action name="GetAllYLZName" class="com.action.PhoneAction" method="getAllYLZName">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+    </package>
+
+</struts>

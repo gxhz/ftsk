@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <package name="Monitoringpoints" extends="struts-default,json-default">
+        
+        <!-- 获取水雨情测点信息 -->
+        <action name="GetMonitoringpointsAction" class="com.action.MonitoringpointsAction" method="getMonitoringpointsInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 添加水雨情测点信息 -->
+        <action name="AddMonitoringpointsAction" class="com.action.MonitoringpointsAction" method="addMonitoringpointsInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 修改水雨情测点信息 -->
+        <action name="EditMonitoringpointsAction" class="com.action.MonitoringpointsAction" method="editMonitoringpointsInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 删除水雨情测点信息 -->
+        <action name="DelMonitoringpointsAction" class="com.action.MonitoringpointsAction" method="delMonitoringpointsInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+                
+    </package>
+
+</struts>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <package name="Staff" extends="struts-default,json-default">
+        
+        <action name="GetStaffAction" class="com.action.StaffAction" method="getStaffInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 获取操作权限的员工信息 -->
+        <action name="GetStaffNameAction" class="com.action.StaffAction" method="getStaffName">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+
+        <action name="AddStaffAction" class="com.action.StaffAction" method="addStaffInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>       
+        
+        <action name="EditStaffAction" class="com.action.StaffAction" method="editStaffInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <action name="DelStaffAction" class="com.action.StaffAction" method="delStaffInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 保存员工权限 -->
+        <action name="SaveYGQX" class="com.action.StaffAction" method="saveYGQX">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 获取员工权限 -->
+        <action name="GeYGQX" class="com.action.StaffAction" method="geYGQX">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 获取操作权限 -->
+        <action name="GetZCQX" class="com.action.StaffAction" method="getZCQX">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 获取传感器信息 -->
+        <action name="GetAllCGQMsg" class="com.action.StaffAction" method="getAllCGQMsg">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        <action name="GetCGQList" class="com.action.StaffAction" method="getAllCGQList">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- 添加传感器信息 -->
+        <action name="AddCGQMsg" class="com.action.StaffAction" method="addCGQMsg">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 修改传感器信息 -->
+        <action name="EditCGQMsg" class="com.action.StaffAction" method="editCGQMsg">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 删除传感器信息 -->
+        <action name="DelCGQMsg" class="com.action.StaffAction" method="delCGQMsg">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 登录 -->
+        <action name="MakeLogin" class="com.action.StaffAction" method="makeLogin">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 初始化员工权限 -->
+        <action name="InitYGQX" class="com.action.StaffAction" method="initYGQX">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+    </package>
+
+</struts>

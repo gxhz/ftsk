@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <package name="damDamMonitoringpoints" extends="struts-default,json-default">
+        
+        <!-- 获取大坝测点信息 -->
+        <action name="GetDamMonitoringpointsAction" class="com.action.DamMonitoringpointsAction" method="getDamMonitoringpointsInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 添加大坝测点信息 -->
+        <action name="AddDamMonitoringpointsAction" class="com.action.DamMonitoringpointsAction" method="addDamMonitoringpointsInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 修改大坝测点信息 -->
+        <action name="EditDamMonitoringpointsAction" class="com.action.DamMonitoringpointsAction" method="editDamMonitoringpointsInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 删除大坝测点信息 -->
+        <action name="DelDamMonitoringpointsAction" class="com.action.DamMonitoringpointsAction" method="delDamMonitoringpointsInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+                
+    </package>
+
+</struts>

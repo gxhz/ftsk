@@ -1,0 +1,127 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+<%@include file="../head1.jsp" %>  
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>渗流压力平面等势线分布图</title>
+
+</head>
+
+<body>
+
+    <div style="position:absolute;width:1692px;height:815px;overflow:auto;z-index:2">
+        <div data-options="region:'north',border:false" style="padding:3px;height:38px;text-align:center;background:#fffff">
+            <span id="myspan" style="font:normal 25px '微软雅黑'; ">渗流压力平面等势线分布图</span>
+        </div>
+    
+        <canvas id="canvas" width="1690px" height="770px" style="background: url(../images/hpm/20.jpg) no-repeat;" style="z-index:999" >
+        
+    </div>
+    
+    <div style="position: fixed;left:0px;right:0px;bottom:80px;z-index: 888;padding: 5px;margin-left:auto;margin-right:auto;width:800px">
+        <table align="center"  border="0" cellpadding="0" cellspacing="0" style="padding:5px;">
+            <tr>
+                <td>日期选择：</td>
+                <td>
+                    <input id="sdate" name="sdate" data-options="editable:false,onSelect:onSelect" 
+                        class="easyui-datebox" required style="width:120px;height:28px">
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+
+<script type="text/javascript">
+
+    //得到当前日期
+    formatterDate = function(date) {
+        var day = date.getDate() > 9 ? date.getDate() : "0" + date.getDate();
+        var month = (date.getMonth() + 1) > 9 ? (date.getMonth() + 1) : "0"
+        + (date.getMonth() + 1);
+        return date.getFullYear() + '-' + month + '-' + day;
+    };
+
+    //初始化界面数据
+    window.onload = function () { 
+    	$('#sdate').datebox('setValue', formatterDate(new Date()));
+    	
+    	getData();  //获取数据并显示
+    };
+    
+    //日期选择事件
+    function onSelect(date){
+    	getData();  //获取数据并显示
+	}
+    
+    //获取数据并显示
+    function getData() {
+		var sdate;
+		
+		sdate = $('#sdate').datebox('getValue');
+		
+		if(sdate == '') {
+        	$.messager.alert('系统提示','请选择日期!','error');
+        	return;
+        }
+		
+		//清除画布
+		var ctx = canvas.getContext("2d");
+		ctx.clearRect(0,0,canvas.width,canvas.height);
+		
+		 $.ajax({
+			 type:'post',
+             dataType:'json',
+             data:{SDate:sdate},
+             url:'GetSYSWDSXData.action',
+			 success:function(data){
+				var pa1=[0.0, 0.0, 0.0, 0.0];
+				var pa2=[0.0, 0.0, 0.0, 0.0];
+				var pa3=[0.0, 0.0, 0.0, 0.0];
+				var pa4=[0.0, 0.0, 0.0, 0.0];
+				
+				for(var i=0;i<data.length;i++) {
+					var name=data[i].name;
+					
+					if(name == 'PA1-1') pa1[0] = data[i].sysw;
+					if(name == 'PB1-1') pa1[1] = data[i].sysw;
+					if(name == 'PC1-1') pa1[2] = data[i].sysw;
+					if(name == 'PD1-1') pa1[3] = data[i].sysw;
+					if(name == 'PE1-1') pa1[4] = data[i].sysw;
+					
+					if(name == 'PA2-1') pa2[0] = data[i].sysw;
+					if(name == 'PB2-1') pa2[1] = data[i].sysw;
+					if(name == 'PC2-1') pa2[2] = data[i].sysw;
+					if(name == 'PD2-1') pa2[3] = data[i].sysw;
+					if(name == 'PE2-1') pa2[4] = data[i].sysw;
+					
+					if(name == 'PA3-1') pa3[0] = data[i].sysw;
+					if(name == 'PB3-1') pa3[1] = data[i].sysw;
+					if(name == 'PC3-1') pa3[2] = data[i].sysw;
+					if(name == 'PD3-1') pa3[3] = data[i].sysw;
+					
+					if(name == 'PA4-1') pa4[0] = data[i].sysw;
+					if(name == 'PB4-1') pa4[1] = data[i].sysw;
+					if(name == 'PC4-1') pa4[2] = data[i].sysw;
+					if(name == 'PD4-1') pa4[3] = data[i].sysw;
+					
+				}
+				
+				//画拆线
+				drawDSX(canvas, pa1, "#EA0000");
+				drawDSX(canvas, pa2, "#EA0000");
+				drawDSX(canvas, pa3, "#EA0000");
+				drawDSX(canvas, pa4, "#EA0000");
+				
+			 }
+         });
+
+	}
+    
+</script>
+
+</html>

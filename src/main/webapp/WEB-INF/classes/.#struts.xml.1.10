@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="false" />
+
+    <package name="skaqzdhglxt" extends="struts-default,json-default">
+
+
+		<action name="getExcel" class="com.action.ExcelAction">  
+            <result type="stream">
+            <param name="contentType">application/vnd.ms-excel</param>
+			<param name="contentDisposition">attachment;filename="${excelFileName}"</param>
+			<param name="inputName">excelFile</param>
+			</result>
+		</action> 
+        
+        <action name="GetWaterregimelogsAction" class="com.action.WaterregimelogsAction" method="getWaterregimeInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <action name="GetWaterlevelAction" class="com.action.WaterlevelAction" method="getWaterlevelInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <action name="GetPointinfoAction" class="com.action.WaterlevelAction" method="getAllInfo">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <action name="GetDepartmentAction" class="com.action.DepartmentAction" method="getDepartmentInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <action name="GetDepartmentNameAction" class="com.action.DepartmentAction" method="getDepartmentName">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <action name="AddDepartmentAction" class="com.action.DepartmentAction" method="addDepartmentInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+ 		<action name="EditDepartmentAction" class="com.action.DepartmentAction" method="editDepartmentInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+		<action name="DelDepartmentAction" class="com.action.DepartmentAction" method="delDepartmentInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <action name="GetJobAction" class="com.action.JobAction" method="getJobInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <action name="GetJobNameAction" class="com.action.JobAction" method="getJobName">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+
+        <action name="AddJobAction" class="com.action.JobAction" method="addJobInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>       
+        
+        <action name="EditJobAction" class="com.action.JobAction" method="editJobInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <action name="DelJobAction" class="com.action.JobAction" method="delJobInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <action name="GetStaffAction" class="com.action.StaffAction" method="getStaffInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <action name="GetStaffNameAction" class="com.action.StaffAction" method="getStaffName">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+
+        <action name="AddStaffAction" class="com.action.StaffAction" method="addStaffInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>       
+        
+        <action name="EditStaffAction" class="com.action.StaffAction" method="editStaffInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <action name="DelStaffAction" class="com.action.StaffAction" method="delStaffInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <action name="GetOperationAction" class="com.action.OperationAction" method="getOperationInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <action name="GetOperationNameAction" class="com.action.OperationAction" method="getOperationName">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+
+        <action name="AddOperationAction" class="com.action.OperationAction" method="addOperationInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>       
+        
+        <action name="EditOperationAction" class="com.action.OperationAction" method="editOperationInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <action name="DelOperationAction" class="com.action.OperationAction" method="delOperationInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 获取设备所有信息 -->
+        <action name="GetSBMsgAction" class="com.action.DevicesAction" method="getAllDevicesInfo">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- 获取水库所有信息 -->
+        <action name="GetSKMsgAction" class="com.action.ReservoirsAction" method="getAllReservoirsInfo">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- 获取监测点所有信息 -->
+        <action name="GetJCDMsgAction" class="com.action.MonitoringpointsAction" method="getAllMPInfo">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- 获取断面所有信息 -->
+        <action name="GetDMMsgAction" class="com.action.SectionsAction" method="getAllSectionsInfo">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+        <!-- 获取水雨情测点所有信息 -->
+        <action name="GetCDMsgAction" class="com.action.MonitoringpointsAction" method="getAllMonitoringpointsInfo">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+        </action>
+        
+    </package>
+    
+    <include file="struts_reservoirs.xml"/>
+    <include file="struts_devices.xml"/>
+    <include file="struts_monitoringpoints.xml"/>
+    <include file="struts_sections.xml"/>
+    <include file="struts_dammonitoringpoints.xml"/>
+    <include file="struts_dbjc.xml"/>
+    <include file="struts_parameters.xml"/>
+
+</struts>

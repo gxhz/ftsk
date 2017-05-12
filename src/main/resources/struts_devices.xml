@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <package name="devices" extends="struts-default,json-default">
+        
+        <!-- 获取水库信息 -->
+        <action name="GetDevicesAction" class="com.action.DevicesAction" method="getDevicesInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 添加水库信息 -->
+        <action name="AddDevicesAction" class="com.action.DevicesAction" method="addDevicesInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 修改水库信息 -->
+        <action name="EditDevicesAction" class="com.action.DevicesAction" method="editDevicesInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <!-- 删除水库信息 -->
+        <action name="DelDevicesAction" class="com.action.DevicesAction" method="delDevicesInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+                
+    </package>
+
+</struts>

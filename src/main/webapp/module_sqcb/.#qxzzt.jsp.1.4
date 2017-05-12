@@ -1,0 +1,205 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="../jquery-easyui/themes/metro/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../jquery-easyui/themes/icon.css">
+
+	<script type="text/javascript" src="../jquery-easyui/jquery.min.js"></script>
+	<script type="text/javascript" src="../jquery-easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="../jquery-easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script language="javascript" type="text/javascript" src="../hz_js/My97DatePicker/WdatePicker.js"></script>
+	
+	<script type="text/javascript" src="../plugins/jquery.jqplot.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../plugins/jquery.jqplot.min.css">
+	
+	<script type="text/javascript" src="../plugins/jqplot.highlighter.min.js"></script>
+	<script type="text/javascript" src="../plugins/jqplot.cursor.min.js"></script>
+	<script type="text/javascript" src="../plugins/jqplot.dateAxisRenderer.min.js"></script>
+	
+	<script src="../plugins/jqplot.canvasAxisTickRenderer.min.js"></script>
+	<script src="../plugins/jqplot.canvasTextRenderer.js"></script>
+	<script src="../plugins/jqplot.canvasAxisLabelRenderer.js"></script>
+	<script src="../plugins/jqplot.categoryAxisRenderer.min.js"></script>
+	<script src="../plugins/jqplot.barRenderer.min.js"></script>
+	<script src="../plugins/excanvas.min.js"></script>
+	<script src="../plugins/jqplot.pointLabels.min.js"></script>
+
+</head>
+
+<script type="text/javascript">
+	
+	findqx();
+	
+	function findqx() {			
+		var paras = {
+				id_mp : 1,
+				id_reservoir : 1,
+				time_start : $('#date_0').val(),
+				time_end : $('#date_1').val()
+	    };
+			
+		$.ajax({
+		    type: 'post',
+		    data: paras,
+		    dataType:'json',		    
+		    url:'GetLevelAction.action',
+		    success:function(data) {
+		    	// var line1=[170.02, 165, 169, 167, 168, 169, 173, 168, 172, 170, 170, 168];
+			  	var line2=[130.18, 135, 139, 137, 138, 139, 133, 138, 132, 130, 130, 138];      
+			  	var line1 = new Array();			  	
+			  	// 赋值操作
+				for ( var i = 0; i < data.length; i++) {
+					line1.push(data[i].level);
+				}
+
+				//
+				var plot = $.jqplot('chart1', [ line1, line2 ], {
+					title : '水位曲线图',
+					axes : {
+						xaxis : {
+							padMin : 0,
+							padMax : 1.05,
+							tickOptions : {
+								formatString : '%.0f:00'
+							}
+						},
+						yaxis : {
+							padMin : 0,
+							padMax : 0,
+							rendererOptions : {
+								forceTickAt0 : true,
+								forceTickAt100 : true
+							},
+							tickOptions : {
+								formatString : '%.0f&nbsp;'
+							}
+						}
+					},
+					highlighter : {
+						show : true,
+						sizeAdjust : 7.5
+					},
+					cursor : {
+						show : false
+					}
+				});
+			}
+		});
+	}
+</script>
+
+<script type="text/javascript">
+	findzxt();
+
+	function findzxt() {	
+		
+		var paras = {
+				id_mp : 1,
+				id_reservoir : 1,
+				time_start : $('#date_0').val(),
+				time_end : $('#date_1').val()
+	    };
+		
+		$.ajax({
+		    type: 'post',
+		    data: paras,
+		    dataType:'json',		    
+		    url:'GetRainfallAction.action',
+		    success : function(data) {
+			  	var line1 = new Array();			  	
+			  	// 赋值操作
+				for ( var i = 0; i < data.length; i++) {
+					line1[i] = new Array();
+					for(var j = 0;j < 2;j++){					
+						if(j==0){
+							line1[i].push((5 + i).toString());
+						}
+						if(j==1){
+							line1[i].push(data[i].level);
+						}
+					}
+				}
+			  	
+				//
+				$.jqplot('chart2', [ line1 ], {
+					title : '柱状图',
+					series : [ {
+						renderer : $.jqplot.BarRenderer
+					} ],
+					seriesDefaults : {
+						pointLabels : {
+							show : true
+						}
+					},
+					axesDefaults : {
+						tickRenderer : $.jqplot.CanvasAxisTickRenderer,
+					},
+					axes : {
+						xaxis : {
+							renderer : $.jqplot.CategoryAxisRenderer
+						},
+						yaxis : {
+							autoscale : true
+						}
+					}
+				});
+			}
+		});
+	}	
+</script>
+
+<style type="text/css">
+  
+	table.jgdstyle {
+		font-family: verdana,arial,sans-serif;
+		font-size:15px;
+		color:#333333;
+		border-width: 1px;
+		border-collapse: collapse;
+	}
+	table.jgdstyle td {
+		border-width: 0px;
+		padding-left: 5px;
+		padding-right:5px;
+		border-style: solid;
+	}
+	
+</style>
+
+<div title="曲线图" style="padding: 10px;">
+	<div style="border: 1px solid #b8d0d6; padding: 3px; width: width:100%">
+		<table class="jgdstyle">
+			<tr>
+				<td width="85" align="right">水库选择：</td>
+				<td width="120" align="left">
+				<input id="reservoir" name="reservoir"
+							class="easyui-combobox" style="width:99%;"
+							data-options="
+                                            url:'GetSKMsgAction',
+                                            method:'get',
+                                            valueField:'id',
+                                            textField:'name',
+                                            panelHeight:'auto',
+                                            editable:false
+                                    ">
+				</td>
+				<td width="85" align="right">开始时间：</td>
+				<td width="120" align="left"><input type="text" name="date_0"
+					id="date_0" onclick="WdatePicker()" style="width: 120px"></td>
+				<td width="85" align="right">结束时间：</td>
+				<td width="120" align="left"><input type="text" name="date_1"
+					id="date_1" onclick="WdatePicker()" style="width: 120px"></td>
+				<td width="80"><a href="#" class="easyui-linkbutton"
+					data-options="iconCls:'icon-search'" style="width: 60px" onclick="findqx()">查询</a></td>
+				<td width="400"></td>
+			</tr>
+		</table>
+	</div>
+	
+	<div id="chart1" style="left: 15px; width: 1100px; height: 460px"></div>
+	<div id="chart2" style="left: 15px; width: 1100px; height: 460px"></div>
+	
+	<div style="left: 15px; width: 1100px; height: 30px"></div>
+</div>
