@@ -17,7 +17,7 @@
 
 <script type="text/javascript">
 	
-    dwr.engine.setActiveReverseAjax(true);  
+    dwr.engine.setActiveReverseAjax(true);
     dwr.engine.setNotifyServerOnPageUnload(true,true);  
       
     //显示DWR推送消息
